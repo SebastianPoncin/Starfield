@@ -14,9 +14,9 @@ void setup() {
   size(720, 720);
   for(int i = 0; i < num; i++) {
     if((int)(Math.random()*20) == 17) {
-      particles.add(new OddBall((int)(Math.random()*4), (int)(Math.random()*100)*-1*interval-100, 1));
+      particles.add(new OddBall((int)(Math.random()*4), (int)(Math.random()*100)*-1*interval-100, 1, 15));
     } else {
-      particles.add(new Particle((int)(Math.random()*4), (int)(Math.random()*100)*-1*interval-100, 0));
+      particles.add(new Particle((int)(Math.random()*4), (int)(Math.random()*100)*-1*interval-100, 0, 30));
     }
   }
 }
@@ -45,6 +45,7 @@ void draw() {
     vertex(195, 600);
     vertex(185, 680);
     vertex(10, 680);
+    vertex(30, 600);
     endShape();
   }
   if (keylockout[1] != 0) {
@@ -55,6 +56,7 @@ void draw() {
     vertex(185, 680);
     vertex(360, 680);
     vertex(360, 600);
+    vertex(195, 600);
     endShape();
   }
   if (keylockout[2] != 0) {
@@ -65,6 +67,7 @@ void draw() {
     vertex(360, 600);
     vertex(525, 600);
     vertex(535, 680);
+    vertex(360, 680);
     endShape();
   }
   if (keylockout[3] != 0) {
@@ -75,6 +78,7 @@ void draw() {
     vertex(535, 680);
     vertex(710, 680);
     vertex(690, 600);
+    vertex(525, 600);
     endShape();
   }
   
@@ -147,8 +151,8 @@ int topWidth = width/8;
 int bottomWidth = width/4;
 
 class OddBall extends Particle {
-  OddBall(int lane, float ypos, int col) {
-    super(lane, ypos, col);
+  OddBall(int lane, float ypos, int col, int high) {
+    super(lane, ypos, col, high);
   }
   void splode() {
     fill(255, 255, 120);
@@ -162,14 +166,14 @@ class OddBall extends Particle {
 class Particle {
   float x, y, v, l, tw, bw, h, a; // x, y, speed, lane, topWidth, bottomWidth, height, angle
   int c;
-  Particle(int lane, float ypos, int col) {
+  Particle(int lane, float ypos, int col, float high) {
     y = ypos;
     v = 3;
     l = lane;
     x = 180+lane*90; // topleft corner of lane at y
     tw = 40;
     bw = 80;
-    h = 30;
+    h = high;
     a = 0;
     c = col;
   }
