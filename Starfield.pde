@@ -209,9 +209,6 @@ class Particle {
     }  else {
       speedFactor = 1;
     }
-    if (y < 0) {
-      println(y + " " + speedFactor);
-    }
     y += speedFactor;
 
   }
