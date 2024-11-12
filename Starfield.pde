@@ -3,7 +3,7 @@ int[] keylockout = {0, 0, 0, 0};
 int num = 100;
 int interval = 20;
 //Particle[] particles = new Particle[num];
-ArrayList<Particle>particles = new ArrayList<Particle>();
+ArrayList<Particle> particles = new ArrayList<Particle>();
 
 
 int score = 0;
