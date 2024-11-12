@@ -3,7 +3,7 @@ int[] keylockout = {0, 0, 0, 0};
 int num = 100;
 int interval = 20;
 //Particle[] particles = new Particle[num];
-ArrayList<Particle> particles = new ArrayList<Particle>();
+ArrayList<Particle>particles = new ArrayList<Particle>();
 
 
 int score = 0;
@@ -140,11 +140,6 @@ void keyReleased() {
   }
 }
 
-void mousePressed() {
-  println(mouseX + " " + mouseY);
-}
-
-
 
 
 int topWidth = width/8;
@@ -209,6 +204,7 @@ class Particle {
     }  else {
       speedFactor = 1;
     }
+
     y += speedFactor;
 
   }
